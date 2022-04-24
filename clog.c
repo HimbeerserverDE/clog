@@ -17,6 +17,15 @@ int lprintf(const char *format, ...)
 	return n;
 }
 
+void lfatalf(const char *format, ...)
+{
+	va_list ap;
+	va_start(ap, format);
+
+	lvfatalf(format, ap);
+	// Can't clean up as lvfatalf ends the process
+}
+
 int lvprintf(const char *format, va_list ap)
 {
 	time_t timer = time(NULL);
