@@ -6,6 +6,17 @@
 
 #define TIMESTRLEN 20
 
+int lprintf(const char *format, ...)
+{
+	va_list ap;
+	va_start(ap, format);
+
+	int n = vlprintf(format, ap);
+
+	va_end(ap);
+	return n;
+}
+
 int vlprintf(const char *format, va_list ap)
 {
 	time_t timer = time(NULL);
