@@ -38,3 +38,9 @@ int lvprintf(const char *format, va_list ap)
 	n += vprintf(format, ap);
 	return n;
 }
+
+void lvfatalf(const char *format, va_list ap)
+{
+	lvprintf(format, ap);
+	exit(EXIT_FAILURE);
+}
