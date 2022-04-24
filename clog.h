@@ -5,6 +5,6 @@
 
 int lprintf(const char *format, ...);
 
-int vlprintf(const char *format, va_list ap);
+int lvprintf(const char *format, va_list ap);
 
 #endif

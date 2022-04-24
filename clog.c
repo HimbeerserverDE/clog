@@ -11,13 +11,13 @@ int lprintf(const char *format, ...)
 	va_list ap;
 	va_start(ap, format);
 
-	int n = vlprintf(format, ap);
+	int n = lvprintf(format, ap);
 
 	va_end(ap);
 	return n;
 }
 
-int vlprintf(const char *format, va_list ap)
+int lvprintf(const char *format, va_list ap)
 {
 	time_t timer = time(NULL);
 	struct tm *tm_info = localtime(&timer);
