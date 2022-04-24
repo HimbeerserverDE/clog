@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,11 +6,8 @@
 
 #define TIMESTRLEN 20
 
-int lprintf(const char *format, ...)
+int vlprintf(const char *format, va_list ap)
 {
-	va_list ap;
-	va_start(ap, format);
-
 	time_t timer = time(NULL);
 	struct tm *tm_info = localtime(&timer);
 
@@ -29,7 +25,5 @@ int lprintf(const char *format, ...)
 	strcat(fmt, "\n");
 
 	n += vprintf(format, ap);
-
-	va_end(ap);
 	return n;
 }
